@@ -106,10 +106,16 @@ void gel::GLSL::use()
 
 void gel::GLSL::unuse()
 {
-	glUseProgram(m_ProgramID);
+	glUseProgram(0);
 }
 
 GLint gel::GLSL::getUniformLocation(const std::string attribName)
 {
-	return glGetUniformLocation(m_ProgramID, attribName.c_str());
+
+	auto result = glGetUniformLocation(m_ProgramID, attribName.c_str());
+	if (result == -1)
+	{
+		std::cout << "Could not find " << attribName << " in shaders" << std::endl;
+	}
+	return result;
 }

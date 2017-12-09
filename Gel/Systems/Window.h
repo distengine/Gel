@@ -15,10 +15,15 @@ namespace gel
 		void display();
 		bool isOpen();
 		void close();
-		bool pollEvent(sf::Event& e);
+		void fullScreen();
+		sf::RenderWindow& GetWindowRef() { return m_RenderWindow; }
+		sf::Vector2u GetSize() { return m_RenderWindow.getSize(); }
 	private:
 
 	private:
 		sf::RenderWindow m_RenderWindow;
+		std::string m_Title;
+		sf::Vector2i m_Size, m_Pos;
+		bool m_FullScreen;
 	};
 }

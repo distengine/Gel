@@ -91,18 +91,18 @@ namespace gel
 	template<>
 	inline void GLSL::glUniform(int location, glm::vec4 data)
 	{
-		glUniform4d(location, data.x, data.y, data.z, data.w);
+		glUniform4f(location, data.x, data.y, data.z, data.w);
 	}
 
 	template<>
 	inline void GLSL::glUniform(int location, glm::mat3 data)
 	{
-		glUniform3fv(location, 1, glm::value_ptr(data));
+		glUniformMatrix3fv(location, 1, GL_FALSE, glm::value_ptr(data));
 	}
 
 	template<>
 	inline void GLSL::glUniform(int location, glm::mat4 data)
 	{
-		glUniform4fv(location, 1, glm::value_ptr(data));
+		glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(data));
 	}
 }

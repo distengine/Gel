@@ -6,9 +6,9 @@ namespace gel {
 
 	struct TexParams
 	{
-		TexParams(GLenum target, GLenum wrap, GLint texWrap, GLenum filMin, GLint minFil, GLenum filMag, GLint magFil);
+		TexParams(GLenum target, GLenum wrap, GLenum filMin, GLint minFil, GLenum filMag, GLint magFil);
 		GLenum Target, Wrap, FilterMin, FilterMag;
-		GLint TexWrap, MinFilter, MagFilter;
+		GLint MinFilter, MagFilter;
 	};
 
 	class Texture

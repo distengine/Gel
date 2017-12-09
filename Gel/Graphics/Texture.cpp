@@ -23,6 +23,7 @@ void gel::Texture::createTexture(const TexParams param, const std::string texFil
 	sf::Image img;
 	if (img.loadFromFile(texFile))
 	{
+		img.flipHorizontally();
 		img.flipVertically();
 		glTexImage2D(param.Target, 0, GL_RGBA, img.getSize().x, img.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, img.getPixelsPtr());
 		glGenerateMipmap(param.Target);
@@ -44,11 +45,10 @@ void gel::Texture::unbind()
 	glBindTexture(m_Target, 0);
 }
 
-gel::TexParams::TexParams(GLenum target, GLenum wrap, GLint texWrap, GLenum filMin, GLint minFil, GLenum filMag, GLint magFil)
+gel::TexParams::TexParams(GLenum target, GLenum wrap, GLenum filMin, GLint minFil, GLenum filMag, GLint magFil)
 {
 	Target = target;
 	Wrap = wrap;
-	TexWrap = texWrap;
 	FilterMin = filMin;
 	MinFilter = minFil;
 	FilterMag = filMag;

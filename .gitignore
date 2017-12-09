@@ -3,3 +3,8 @@
 ################################################################################
 
 *.tlog
+/x64/Debug
+/x64/Release
+/Gel.vcxproj
+/Gel.vcxproj.filters
+/Gel.vcxproj.user
